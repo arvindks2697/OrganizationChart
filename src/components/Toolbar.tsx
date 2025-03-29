@@ -17,7 +17,7 @@ interface ToolbarProps {
 export const Toolbar = (props: ToolbarProps) => {
     const [filterOption, setFilterOption] = React.useState<any>("");
     const [filterValue, setFilterValue] = React.useState<string>('');
-    const op = React.useRef(null);
+    const op = React.useRef<any>(null);
     const onFilter = (e: any) => {
         setFilterValue("")
         let data: string = e.value ?? e.target.value;
@@ -39,7 +39,9 @@ export const Toolbar = (props: ToolbarProps) => {
         props.setSelect(false)
         fetchAllUsers(props.setUsers, props.setList);
     }
-
+    const handleMenuOpen = (e: React.MouseEvent) => {
+        if (op.current) op?.current?.toggle(e)
+    }
     const getSearchBarTemplate = () => {
         if (filterOption == "team") {
             return <Dropdown value={filterValue} onChange={onFilter} options={Object.values(Team)} optionLabel="team"
@@ -55,10 +57,11 @@ export const Toolbar = (props: ToolbarProps) => {
         // return <div className='placeholder-div'></div>
     }
 
+
     return <div className="toolbar w-full">
         <div className="flex flex-column align-items-start w-full">
             <div className="flex justify-content-start w-full">
-                <Button icon="pi pi-filter" rounded text onClick={(e) => op.current.toggle(e)} tooltip="Filter Options" tooltipOptions={{ position: "top" }} className="w-2" />
+                <Button icon="pi pi-filter" rounded text onClick={handleMenuOpen} tooltip="Filter Options" tooltipOptions={{ position: "top" }} className="w-2" />
                 {getSearchBarTemplate()}
                 {filterOption ? <Button icon="pi pi-times" rounded text severity="danger" aria-label="Cancel" onClick={onClear} className="w-2" /> : ""}
                 <OverlayPanel ref={op}>

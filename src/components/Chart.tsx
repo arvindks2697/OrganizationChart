@@ -43,7 +43,7 @@ export const Chart = (props: ChartProps) => {
             className="p-2 border rounded-lg shadow-md cursor-move bg-white text-center"
         >
             <div className="flex flex-column align-items-center">
-                <img alt={node.label} src={node.icon} className="mb-3 w-3rem h-3rem" />
+                <img alt={node.label} src={node?.data} className="mb-3 w-3rem h-3rem" />
                 <span className="mb-2">{node.label}</span>
             </div>
         </div>)

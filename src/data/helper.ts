@@ -13,7 +13,7 @@ export const buildNodeTree = (data: Employee[], setUsers: SetStateAction<any>): 
             key: emp.id,
             expanded: true,
             children: [],
-            icon: emp.img
+            data: emp.img
         };
         map.set(emp.id, node);
     });

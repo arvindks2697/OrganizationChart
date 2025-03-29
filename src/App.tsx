@@ -2,7 +2,7 @@ import * as React from 'react'
 import { TreeNode } from 'primereact/treenode';
 import { initializeServer } from './server/main';
 import { sampleData } from './data/sample';
-import { buildNodeTree, fetchAllUsers } from './data/helper';
+import { fetchAllUsers } from './data/helper';
 import { Employee } from './components/types';
 import './App.css'
 import { EmployeeList } from './components/EmployeeList';

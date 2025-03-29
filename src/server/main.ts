@@ -19,7 +19,7 @@ export const initializeServer = () => {
     routes() {
       this.get("/api/users", () => employeeData);
 
-      this.get("/api/users/:id", (schema, request) => {
+      this.get("/api/users/:id", (_schema, request) => {
         const id = parseInt(request.params.id, 10);
         const employee = findEmployeeById(id);
         if (!employee) return { error: "Employee not found" };
@@ -28,7 +28,7 @@ export const initializeServer = () => {
         return [...managers, employee].sort((a, b) => a.id - b.id);
       });
 
-      this.post("/api/users/filter", (schema, request) => {
+      this.post("/api/users/filter", (_schema, request) => {
         try {
           const params = JSON.parse(request.requestBody);
 
@@ -68,7 +68,7 @@ export const initializeServer = () => {
         }
       });
 
-      this.post("/api/users/update", (schema, request) => {
+      this.post("/api/users/update", (_schema, request) => {
         try {
           const attrs = JSON.parse(request.requestBody);
           const currentEmployee = findEmployeeById(attrs.id);
