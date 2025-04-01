@@ -46,7 +46,15 @@
 }
 
 .p-node-toggler {
-  display: none;
+  /* display: none; */
+  color: #0e7490;
+  border: 1px solid #e5e7eb;
+}
+
+.p-node-toggler:hover{
+  /* display: none; */
+  color: #e5e7eb;
+  background: #0e7490;
 }
 
 .text-small {
@@ -103,7 +111,7 @@
   text-align: left;
 }
 
-.toolbar{
+.toolbar {
   border-radius: 10px 10px 0 0;
   background: #ffffff;
   border: 1px solid #d1d5db;
@@ -157,11 +165,11 @@
   border-color: #ecfeff;
 }
 
-.org-chart-panel{
+.org-chart-panel {
   position: relative;
 }
 
-.org-chart-panel .view-all{
+.org-chart-panel .view-all {
   position: absolute;
   top: 5px;
   left: 5px;

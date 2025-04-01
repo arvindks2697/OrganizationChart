@@ -66,7 +66,9 @@ export const Toolbar = (props: ToolbarProps) => {
                 {filterOption ? <Button icon="pi pi-times" rounded text severity="danger" aria-label="Cancel" onClick={onClear} className="w-2" /> : ""}
                 <OverlayPanel ref={op}>
                     <div className="text-primary mb-3">Filter By:</div>
-                    <SelectButton value={filterOption} onChange={(e) => setFilterOption(e.value)} optionLabel="name" options={items} />
+                    <SelectButton value={filterOption} onChange={(e) => {
+                        setFilterOption(e.value); setFilterValue("")
+                    }} optionLabel="name" options={items} />
                 </OverlayPanel>
             </div>
         </div>

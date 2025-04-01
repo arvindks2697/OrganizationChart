@@ -26,7 +26,7 @@ export const Chart = (props: ChartProps) => {
         const targetId = targetNode?.key;
         axios.post(`/api/users/update`, { id: draggedId, tid: targetId })
             .then((res: any) => res.data)
-            .then((data) => { buildNodeTree(data, props.setUsers); props.setList(data) }).catch((err) => console.error(`The following error has occured ${err}`))
+            .then((data) => { buildNodeTree(data, props.setUsers)}).catch((err) => console.error(`The following error has occured ${err}`))
     };
 
     const handleReset = () => {
